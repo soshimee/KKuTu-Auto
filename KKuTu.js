@@ -46,7 +46,7 @@ function KJS_loop() {
 requestAnimationFrame(KJS_loop);
 
 var rawFile = new XMLHttpRequest();
-rawFile.open("GET", "", false);
+rawFile.open("GET", "https://raw.githubusercontent.com/soshimee/KKuTu-Auto/master/wordlist.js", false);
 rawFile.onreadystatechange = () => {
 	if (rawFile.readyState === 4) {
 		if (rawFile.status === 200 || rawFile.status == 0) {
