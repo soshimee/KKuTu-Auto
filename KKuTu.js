@@ -1,3 +1,4 @@
+let KJS_wordlist;
 let KJS_wordlist_game = [];
 let KJS_running = false;
 
@@ -44,16 +45,14 @@ function KJS_loop() {
 }
 requestAnimationFrame(KJS_loop);
 
-function KJS_readTextFile(file) {
-	var rawFile = new XMLHttpRequest();
-	rawFile.open("GET", file, false);
-	rawFile.onreadystatechange = function () {
-		if (rawFile.readyState === 4) {
-			if (rawFile.status === 200 || rawFile.status == 0) {
-				var allText = rawFile.responseText;
-				alert(allText);
-			}
+var rawFile = new XMLHttpRequest();
+rawFile.open("GET", "", false);
+rawFile.onreadystatechange = () => {
+	if (rawFile.readyState === 4) {
+		if (rawFile.status === 200 || rawFile.status == 0) {
+			var allText = rawFile.responseText;
+			eval(allText);
 		}
 	}
-	rawFile.send(null);
 }
+rawFile.send(null);
